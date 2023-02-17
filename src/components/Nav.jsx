@@ -51,7 +51,7 @@ const Nav = () => {
             <li>
               <a
                 href="/"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-white  focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
                 title="Sign up"
               >
@@ -117,7 +117,7 @@ const Nav = () => {
                       <li>
                         <a
                           href="/"                
-                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 my-8"
+                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 "
                         >
                           Home
                         </a>
@@ -125,7 +125,7 @@ const Nav = () => {
                       <li>
                         <a
                           href="/"
-                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 my-8"
+                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 "
                         >
                             About
                         </a>
@@ -133,7 +133,7 @@ const Nav = () => {
                       <li>
                         <a
                           href="/"                        
-                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 my-8"
+                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 "
                         >
                         Contact us
                         </a>
