@@ -55,7 +55,17 @@ const Testimonial = () => {
         },
 
     ]
-    const settings = {
+    const settings1 = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 10000,
+        autoplaySpeed: 2000,
+        cssEase: "linear"
+      };
+    const settings2 = {
         dots: true,
         infinite: true,
         slidesToShow: 3,
@@ -66,8 +76,9 @@ const Testimonial = () => {
         cssEase: "linear"
       };
     return (
-        <div className='max-w-screen-xl mx-auto'>
-        <Slider {...settings}>
+        <div className='overflow-hidden md:max-w-screen-xl mx-auto'>
+        <div className='md:hidden'>
+        <Slider {...settings1}>
         {
             data.map((item,i) =>
                 <div key={i}>
@@ -128,7 +139,70 @@ const Testimonial = () => {
                 )
         }
         </Slider>
-        
+        </div>
+        <div className='hidden md:block'>
+        <Slider {...settings2}>
+        {
+            data.map((item,i) =>
+                <div key={i}>
+                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className=" sm:max-w-sm sm:mx-auto lg:max-w-full">
+        <div className="p-8 bg-white border rounded shadow-sm">
+          <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
+            <a
+              href="/"
+              className="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+              aria-label="Category"
+            >
+              {item.company}
+            </a>{' '}
+            <span className="text-gray-600">— 1 Feb 2020</span>
+          </p>
+          <a
+            href="/"
+            aria-label="Article"
+            title="Jingle Bells"
+            className="inline-block mb-3 text-2xl font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            {
+                item.title
+            }
+          </a>
+          <p className="mb-5 text-gray-700">
+            {
+                item.Describe
+            }
+          </p>
+          <div className="flex items-center">
+            <a href="/" aria-label="Author" title="Author" className="mr-3">
+              <img
+                src={item.img}
+                alt="avatar"
+                className="object-cover w-10 h-10 rounded-full shadow-sm"
+              />
+            </a>
+            <div>
+              <a
+                href="/"
+                aria-label="Author"
+                title="Author"
+                className="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              >
+                {item.Name}
+              </a>
+              <p className="text-sm font-medium leading-4 text-gray-600">
+                {item.passion}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+                </div>
+                )
+        }
+        </Slider>
+        </div>
         </div>
     );
 };
