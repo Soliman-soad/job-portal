@@ -1,6 +1,6 @@
+import Experienced from "./components/Experienced";
 import Footer from "./components/Footer";
 import Fresher from "./components/Fresher";
-import Job from "./components/Job";
 import Nav from "./components/Nav";
 import Testimonial from "./components/Testimonial";
 
@@ -10,6 +10,7 @@ function App() {
     <div >
       <Nav/>
       <Fresher/>
+      <Experienced/>
       <Testimonial/>
       <Footer/>
     </div>

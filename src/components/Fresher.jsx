@@ -1,60 +1,96 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Job from './Job';
+import company1 from "../image/company1.png";
+import company2 from "../image/company2.png";
+import company3 from "../image/company3.png";
+import company4 from "../image/company4.png";
+import company5 from "../image/company5.png";
+import company6 from "../image/company6.png";
+import company7 from "../image/company7.png";
+import company8 from "../image/company8.png";
+import company9 from "../image/company9.png";
 
 const Fresher = () => {
     const jobs = [
         {
-            name:'google',
-            position:"Web developer",
+            name:'Standard Charted',
+            position:"Cyber security consultant",
             salary: "20k-30k",
-            location:"",
-            logo:"",
+            location:"California, America",
+            logo:company1,
         },
         {
-            name:'google',
+            name:'Grossi',
             position:"Web developer",
-            salary: "20k-30k",
-            location:"",
-            logo:"",
+            salary: "25k-30k",
+            location:"Rio, Brazil",
+            logo:company2,
         },
         {
-            name:'google',
-            position:"Web developer",
-            salary: "20k-30k",
-            location:"",
-            logo:"",
+            name:'Sharp',
+            position:"Frontend developer",
+            salary: "30k-45k",
+            location:"London, UK",
+            logo:company3,
         },
         {
-            name:'google',
-            position:"Web developer",
-            salary: "20k-30k",
-            location:"",
-            logo:"",
+            name:'Piexden',
+            position:"Figma developer",
+            salary: "20k-35k",
+            location:"Berlin, Germany",
+            logo:company4,
         },
         {
-            name:'google',
+            name:'Cosmic',
             position:"Web developer",
-            salary: "20k-30k",
-            location:"",
-            logo:"",
+            salary: "40k-50k",
+            location:"Tokyo, Japan",
+            logo:company5,
         },
         {
-            name:'google',
-            position:"Web developer",
-            salary: "20k-30k",
-            location:"",
-            logo:"",
+            name:'Youth designer',
+            position:"Graphic designer",
+            salary: "30k-35k",
+            location:"Madrid, Spain",
+            logo:company6,
+        },
+        {
+            name:'instant shift',
+            position:"React developer",
+            salary: "30k",
+            location:"Madrid, Spain",
+            logo:company7,
+        },
+        {
+            name:'U kash',
+            position:"Software developer",
+            salary: "30k-35k",
+            location:"Madrid, Spain",
+            logo:company8,
+        },
+        {
+            name:'Google wallet',
+            position:"Software developer",
+            salary: "35k",
+            location:"Barcelona, Spain",
+            logo:company9,
         }
     ]
+    const [count, setCount]= useState(6)
     return (
+        <>
         <div className='max-w-screen-xl mx-auto grid md:grid-cols-1 lg:grid-cols-2 gap-5'>
          {
-            jobs.map((item,i)=>
-                    <Job key={i} />
+            jobs.slice(0,count).map((item,i)=>
+                    <Job key={i} data={item}/>
             
             )
-         }   
+         }           
         </div>
+        <div className='flex justify-center'>
+        <button className={`bg-blue-500 text-white px-4 mt-5 cursor-pointer rounded-md py-2 ${count>6 ? "hidden":""}`} onClick={()=>setCount(jobs.length)}>See more</button>
+        </div>
+        </>
     );
 };
 
