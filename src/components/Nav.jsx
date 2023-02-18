@@ -1,63 +1,88 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillAlert } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { ProfileContext } from "../context/Context";
 
 
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+    const {user, logOut} = useContext(ProfileContext)
+   console.log(user) 
+    const handleLogOut =() =>{
+        logOut()
+        .then(()=>{    
+        })
+        .catch(error => console.log(error));
+      }
     return (
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-blue-400 text-white ">
         <div className="relative flex items-center justify-between">
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="Company"
             title="Company"
             className="inline-flex items-center text-3xl"
           >
             <AiFillAlert/>
             <span>Jobby</span>
-          </a>
+          </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 aria-label="Home"
                 title="Home"
                 className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"            
+              <Link
+                to="/about"            
                 title="About"
                 className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"                
+              <Link
+                to="/contact"                
                 title="Contact us"
                 className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
+            {
+                user
+                ?
+                <li>
+                <button
+                  onClick={handleLogOut}
+                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-white  focus:shadow-outline focus:outline-none"
+                  aria-label="Sign up"
+                  title="Sign up"
+                >
+                  Sign out
+                </button>
+              </li>
+            :
+            
             <li>
-              <a
-                href="/"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-white  focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </a>
-            </li>
+            <Link
+              to="/login"
+              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-900 transition duration-200 rounded shadow-md bg-white  focus:shadow-outline focus:outline-none"
+              aria-label="Sign up"
+              title="Sign up"
+            >
+              Sign up
+            </Link>
+          </li>
+            }
           </ul>
           <div className="lg:hidden">
             <button
@@ -86,15 +111,15 @@ const Nav = () => {
                 <div className="p-5 bg-blue-400 border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         aria-label="Company"
                         title="Company"
                         className="inline-flex items-center text-2xl"
                       >
                         <AiFillAlert/>
                         <span>Jobby</span>
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <button
@@ -115,39 +140,54 @@ const Nav = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <a
-                          href="/"                
+                        <Link
+                          to="/"                
                           className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 "
                         >
                           Home
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/about"
                           className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 "
                         >
                             About
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"                        
+                        <Link
+                          to="/contact"                        
                           className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 "
                         >
                         Contact us
-                        </a>
+                        </Link>
                       </li>
-                      <li>
-                        <a
-                          href="/"
+                      {
+                        user
+                        ?
+                        <li>
+                        <button
+                          onClick={()=> handleLogOut}
+                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 text-gray-900 rounded shadow-md bg-white hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none "
+                          aria-label="Sign up"
+                          title="Sign up"
+                        >
+                          Sign out
+                        </button>
+                      </li>
+                        :
+                        <li>
+                        <Link
+                          to="/login"
                           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 text-gray-900 rounded shadow-md bg-white hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none "
                           aria-label="Sign up"
                           title="Sign up"
                         >
                           Sign up
-                        </a>
+                        </Link>
                       </li>
+                      }
                     </ul>
                   </nav>
                 </div>

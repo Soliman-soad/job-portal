@@ -63,6 +63,7 @@ const Experienced = () => {
     const [count, setCount]= useState(6)
     return (
         <>
+        <h2 className='text-3xl uppercase text-center text-gray-800 font-semibold mt-16 mb-5 text-blue-500 decoration-blue-500'>Some great jobs for Experienced person</h2>
         <div className='max-w-screen-xl mx-auto grid md:grid-cols-1 lg:grid-cols-2 gap-5'>
          {
             jobs.slice(0,count).map((item,i)=>

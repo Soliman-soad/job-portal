@@ -77,6 +77,7 @@ const Testimonial = () => {
       };
     return (
         <div className='overflow-hidden md:max-w-screen-xl mx-auto'>
+            <h2 className='text-3xl uppercase text-center text-gray-800 font-semibold mt-16 -mb-5 text-blue-500 decoration-blue-500'>Testimonials by our users</h2>
         <div className='md:hidden'>
         <Slider {...settings1}>
         {
